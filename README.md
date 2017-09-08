@@ -33,8 +33,6 @@ pacote para pacote, depois de métodos para classes do mesmo e de outro pacote.<
 ##
 <p align ="center"> <b>Professor:</b> 
   <a href="https://github.com/daniel-abella"> Daniel Abella</a>
-</p>
-
-<p align ="center"> <b>Aluno:</b> 
+  align ="center"> <b>Aluno:</b> 
   <a href="https://github.com/mateus-lourenco"> Mateus Lourenço</a>
 </p>
