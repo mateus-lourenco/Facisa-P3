@@ -30,6 +30,7 @@ pacote para pacote, depois de métodos para classes do mesmo e de outro pacote.<
 ### DiamondProblem
 **Objetivo:** O arquivo contém a descrição do problema conhecido como Diamante.<br>
 
+##
 <p align ="center"> <b>Professor:</b>
   <a href="https://github.com/daniel-abella"> Daniel Abella</a>
 </p>
