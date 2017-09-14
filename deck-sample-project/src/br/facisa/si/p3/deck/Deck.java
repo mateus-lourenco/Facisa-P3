@@ -64,15 +64,15 @@ public class Deck<T> {
 		return inserts;
 	}
 
-	private void internArrayOverFlow() {
+	private T[] internArrayOverFlow() {
 
 		T[] externArray = (T[]) new Object[internArray.length * 2];
 
 		for (int i = 0; i < internArray.length; i++) {
-			externArray[i++] = internArray[i];
+			externArray[i+1] = internArray[i];
 		}
 
-		internArray = externArray;
+		return internArray = externArray;
 
 	}
 }
