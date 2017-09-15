@@ -35,21 +35,21 @@ public class DeckTest {
 	public void testInsertFront3() {
 		Deck<Student> deck = new Deck<>();
 		deck.insertFront(new Student("Robinho",5555));
-		deck.insertFront(new Student("Bit„o",6666));
+		deck.insertFront(new Student("Bit√£o",6666));
 		deck.insertFront(new Student("Cassio",7777));
 		deck.insertFront(new Student("Yago",8888));
 		assertEquals(4, deck.size());
 	}
 	
 	@Test
-	public void testeRemoveFront1(){
+	public void testRemoveFront1(){
 		 Deck<String> deck = new Deck<>();
 		 deck.insertFront("Mateus");
 		 assertEquals("Mateus", deck.removeFront());
 	}
 	
 	@Test
-	public void testeRemoveFront2(){
+	public void testRemoveFront2(){
 		 Deck<String> deck = new Deck<>();
 		 deck.insertFront("e");
 		 deck.insertFront("d");
@@ -71,7 +71,7 @@ public class DeckTest {
 		Deck<Student> deck = new Deck<>();
 		deck.insertBack(new Student("Abella",2222));
 		deck.insertBack(new Student("Andrews",3333));
-		deck.insertFront(new Student("Bit„o",6666));
+		deck.insertFront(new Student("Bit√£o",6666));
 		deck.insertFront(new Student("Cassio",7777));
 		assertEquals(4, deck.size());
 	}
