@@ -50,21 +50,39 @@ public class Deque<T> {
 		return temp;
 	}
 
+	/**
+	 * insert last element on deque
+	 * 
+	 * @param obj
+	 */
 	public void insertBack(T obj) {
 		if (firstNode == null) {
 			createNodeDeque(obj);
 		} else {
 			NodeDeque<T> newNode = new NodeDeque<T>(obj);
-			
-			while (firstNode != null) {
-				newNode = firstNode.next;
+
+			while (firstNode.getNext() != null) {
+				newNode = firstNode.getNext();
 			}
-			
+
 			firstNode = newNode;
 			inserts++;
 		}
 	}
 
+	// TODO consertar o removeBack
+	public T removeBack() {
+		T temp = null;
+		if(firstNode != null) {
+			for(int i = 0; i < inserts -2; i++) {
+				temp = firstNode.getObj();
+				firstNode = firstNode.next;
+			}
+			//firstNode.setNext(null);
+			inserts--;	
+		}
+		return  temp;
+	}
 	/**
 	 * 
 	 * @return size of deque
@@ -80,15 +98,23 @@ public class Deque<T> {
 	public T getFirstElement() {
 		return firstNode.getObj();
 	}
-	
+
+	/**
+	 * 
+	 * @return last element from deque
+	 */
 	public T getLastElement() {
 		NodeDeque<T> temp = firstNode;
-		while(firstNode != null) {
+		while (firstNode.next != null) {
 			temp = firstNode.next;
 		}
 		return temp.getObj();
 	}
 
+	/**
+	 * 
+	 * @param obj
+	 */
 	private void createNodeDeque(T obj) {
 		firstNode = new NodeDeque<T>(obj);
 		inserts++;
