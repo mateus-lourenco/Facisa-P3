@@ -70,15 +70,17 @@ public class Deque<T> {
 		}
 	}
 
-	// TODO consertar o removeBack
+	/**
+	 * 
+	 * @return removed last element from deque
+	 */
 	public T removeBack() {
 		T temp = null;
 		if(firstNode != null) {
-			for(int i = 0; i < inserts -2; i++) {
+			for(int i = 0; i < inserts-2; i++) {
 				temp = firstNode.getObj();
 				firstNode = firstNode.next;
 			}
-			//firstNode.setNext(null);
 			inserts--;	
 		}
 		return  temp;

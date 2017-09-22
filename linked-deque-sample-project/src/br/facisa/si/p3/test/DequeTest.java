@@ -56,6 +56,39 @@ public class DequeTest {
 		deque.insertBack("b");
 		deque.insertBack("c");
 						
-		assertEquals("a",deque.removeBack());
+		assertEquals("c",deque.removeBack());
+	}
+	
+	@Test
+	public void testGetFirstElement() {
+		Deque<String> deque = new Deque<String>();
+		deque.insertFront("a");
+		deque.insertFront("b");
+		deque.insertFront("c");
+		
+		assertEquals("c",deque.getFirstElement());
+	}
+	
+	@Test
+	public void testGetLastElement() {
+		Deque<String> deque = new Deque<String>();
+		deque.insertBack("a");
+		deque.insertBack("b");
+		deque.insertBack("c");
+		deque.insertBack("Szabo");
+		
+		assertEquals("Szabo",deque.getLastElement());
+	}
+	
+	@Test
+	public void testSize() {
+		Deque<String> deque = new Deque<String>();
+		deque.insertFront("a");
+		deque.insertFront("b");
+		deque.insertFront("c");
+		
+		deque.removeBack();
+		deque.removeFront();
+		assertEquals(1, deque.size());
 	}
 }
