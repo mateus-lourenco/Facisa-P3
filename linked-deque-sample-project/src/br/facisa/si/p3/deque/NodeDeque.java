@@ -1,8 +1,13 @@
 package br.facisa.si.p3.deque;
-
+/**
+ * 
+ * @author Mateus Lourenço
+ *
+ * @param <T>
+ */
 public class NodeDeque<T> {
 	private T obj;
-	protected NodeDeque next;
+	protected NodeDeque<T> next;
 	/**
 	 * 
 	 * @param obj
@@ -29,14 +34,14 @@ public class NodeDeque<T> {
 	/**
 	 * @return the next
 	 */
-	public NodeDeque getNext() {
+	public NodeDeque<T> getNext() {
 		return next;
 	}
 
 	/**
 	 * @param next the next to set
 	 */
-	public void setNext(NodeDeque next) {
+	public void setNext(NodeDeque<T> next) {
 		this.next = next;
 	}
 
