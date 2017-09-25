@@ -61,8 +61,8 @@ public class Deque<T> {
 		} else {
 			NodeDeque<T> newNode = new NodeDeque<T>(obj);
 
-			while (firstNode.getNext() != null) {
-				newNode = firstNode.getNext();
+			while (firstNode.next != null) {
+				newNode = firstNode.next;
 			}
 
 			firstNode = newNode;

@@ -50,6 +50,15 @@ public class DequeTest {
 	}
 	
 	@Test
+	public void testInsertBack2() {
+		Deque<String> deque = new Deque<String>();
+		deque.insertFront("a");
+		deque.insertBack("s");
+		deque.insertBack("d");
+		assertEquals("d",deque.getLastElement());
+	}
+	
+	@Test
 	public void testRemoveBack1() {
 		Deque<String> deque = new Deque<String>();
 		deque.insertBack("a");
@@ -89,6 +98,7 @@ public class DequeTest {
 		
 		deque.removeBack();
 		deque.removeFront();
+		
 		assertEquals(1, deque.size());
 	}
 }
