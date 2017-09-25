@@ -59,13 +59,15 @@ public class Deque<T> {
 		if (firstNode == null) {
 			createNodeDeque(obj);
 		} else {
-			NodeDeque<T> newNode = new NodeDeque<T>(obj);
-
-			while (firstNode.next != null) {
-				newNode = firstNode.next;
+			NodeDeque<T> newNode = firstNode;
+			
+			while (newNode.next != null) {
+				newNode = newNode.next;
 			}
+			
 
-			firstNode = newNode;
+			newNode.next = new NodeDeque<T>(obj);
+			
 			inserts++;
 		}
 	}
@@ -81,6 +83,7 @@ public class Deque<T> {
 				temp = firstNode.getObj();
 				firstNode = firstNode.next;
 			}
+			
 			inserts--;	
 		}
 		return  temp;
@@ -107,8 +110,8 @@ public class Deque<T> {
 	 */
 	public T getLastElement() {
 		NodeDeque<T> temp = firstNode;
-		while (firstNode.next != null) {
-			temp = firstNode.next;
+		while (temp.next != null) {
+			temp = temp.next;
 		}
 		return temp.getObj();
 	}

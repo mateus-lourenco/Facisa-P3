@@ -2,6 +2,7 @@ package br.facisa.si.p3.test;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import br.facisa.si.p3.deque.Deque;
@@ -46,6 +47,7 @@ public class DequeTest {
 		Deque<String> deque = new Deque<String>();
 		deque.insertBack("a");
 		deque.insertBack("s");
+		
 		assertEquals("s",deque.getLastElement());
 	}
 	
@@ -59,16 +61,27 @@ public class DequeTest {
 	}
 	
 	@Test
+	public void testInsertBack3() {
+		Deque<String> deque = new Deque<String>();
+		deque.insertFront("a");
+		deque.insertBack("s");
+		deque.insertFront("c");
+		deque.insertBack("d");
+		
+		assertEquals("d",deque.getLastElement());
+	}
+	
+	@Test
 	public void testRemoveBack1() {
 		Deque<String> deque = new Deque<String>();
 		deque.insertBack("a");
 		deque.insertBack("b");
 		deque.insertBack("c");
 						
-		assertEquals("c",deque.removeBack());
+		assertEquals("a",deque.removeBack());
 	}
 	
-	@Test
+	@Before
 	public void testGetFirstElement() {
 		Deque<String> deque = new Deque<String>();
 		deque.insertFront("a");
