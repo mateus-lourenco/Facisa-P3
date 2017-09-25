@@ -2,7 +2,7 @@ package br.facisa.si.p3.deque;
 
 /**
  * 
- * @author Mateus Lourenço
+ * @author Mateus LourenÃ§o
  *
  * @param <T>
  */
@@ -76,18 +76,19 @@ public class Deque<T> {
 	 * 
 	 * @return removed last element from deque
 	 */
-	public T removeBack() {
-		T temp = null;
+	/*public T removeBack() {
+		NodeDeque<T> temp = null;
 		if(firstNode != null) {
+			temp = firstNode;
 			for(int i = 0; i < inserts-2; i++) {
-				temp = firstNode.getObj();
-				firstNode = firstNode.next;
+				temp = temp.next;
 			}
 			
 			inserts--;	
 		}
 		return  temp;
-	}
+	}*/
+	
 	/**
 	 * 
 	 * @return size of deque
