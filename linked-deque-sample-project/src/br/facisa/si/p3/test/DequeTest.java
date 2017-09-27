@@ -78,7 +78,7 @@ public class DequeTest {
 		deque.insertBack("b");
 		deque.insertBack("c");
 						
-		assertEquals("a",deque.removeBack());
+		assertEquals("c",deque.removeBack());
 	}
 	
 	@Before
@@ -103,15 +103,25 @@ public class DequeTest {
 	}
 	
 	@Test
-	public void testSize() {
+	public void testSize1() {
 		Deque<String> deque = new Deque<String>();
 		deque.insertFront("a");
 		deque.insertFront("b");
 		deque.insertFront("c");
 		
-		deque.removeBack();
-		deque.removeFront();
+				
+		assertEquals(3, deque.size());
+	}
+	
+	@Test
+	public void testSize2() {
+		Deque<String> deque = new Deque<String>();
+		deque.insertFront("a");
+		deque.insertFront("b");
+		deque.insertFront("c");
 		
-		assertEquals(1, deque.size());
+		deque.removeFront();
+		deque.removeBack();
+		assertEquals(2, deque.size());
 	}
 }
