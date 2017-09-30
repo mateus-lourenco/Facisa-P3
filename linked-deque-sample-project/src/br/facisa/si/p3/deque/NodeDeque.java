@@ -1,4 +1,5 @@
 package br.facisa.si.p3.deque;
+
 /**
  * 
  * @author Mateus Lourenço
@@ -7,7 +8,8 @@ package br.facisa.si.p3.deque;
  */
 public class NodeDeque<T> {
 	private T obj;
-	protected NodeDeque<T> next;
+	private NodeDeque<T> next;
+
 	/**
 	 * 
 	 * @param obj
@@ -16,7 +18,7 @@ public class NodeDeque<T> {
 		this.obj = obj;
 		next = null;
 	}
-	
+
 	/**
 	 * @return the obj
 	 */
@@ -25,7 +27,8 @@ public class NodeDeque<T> {
 	}
 
 	/**
-	 * @param obj the obj to set
+	 * @param obj
+	 *            the obj to set
 	 */
 	public void setObj(T obj) {
 		this.obj = obj;
@@ -39,12 +42,11 @@ public class NodeDeque<T> {
 	}
 
 	/**
-	 * @param next the next to set
+	 * @param next
+	 *            the next to set
 	 */
 	public void setNext(NodeDeque<T> next) {
 		this.next = next;
 	}
 
-	
-	
 }

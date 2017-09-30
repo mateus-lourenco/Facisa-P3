@@ -2,7 +2,7 @@ package br.facisa.si.p3.deque;
 
 /**
  * 
- * @author Mateus Lourenço
+ * @author Mateus LourenÃ§o
  *
  * @param <T>
  */
@@ -29,7 +29,7 @@ public class Deque<T> {
 			createNodeDeque(obj);
 		} else {
 			NodeDeque<T> newNode = new NodeDeque<T>(obj);
-			newNode.next = firstNode;
+			newNode.setNext(firstNode);
 			firstNode = newNode;
 			inserts++;
 		}
@@ -50,19 +50,45 @@ public class Deque<T> {
 		return temp;
 	}
 
+	/**
+	 * insert last element on deque
+	 * 
+	 * @param obj
+	 */
 	public void insertBack(T obj) {
 		if (firstNode == null) {
 			createNodeDeque(obj);
 		} else {
-			NodeDeque<T> newNode = new NodeDeque<T>(obj);
-			
-			while (firstNode != null) {
-				newNode = firstNode.next;
+			NodeDeque<T> newNode = firstNode;
+
+			while (newNode.getNext() != null) {
+				newNode = newNode.getNext();
 			}
-			
-			firstNode = newNode;
+
+			newNode.setNext(new NodeDeque<T>(obj));
+
 			inserts++;
 		}
+	}
+
+	/**
+	 * 
+	 * @return removed last element from deque
+	 */
+	public T removeBack() {
+		NodeDeque<T> current = null;
+		T element = null;
+		if (firstNode != null) {
+			current = firstNode;
+			for (int i = 0; i < inserts - 2; i++) {
+				current = current.getNext();
+			}
+
+			element = current.getNext().getObj();
+			current.setNext(null);
+			inserts--;
+		}
+		return element;
 	}
 
 	/**
@@ -80,15 +106,23 @@ public class Deque<T> {
 	public T getFirstElement() {
 		return firstNode.getObj();
 	}
-	
+
+	/**
+	 * 
+	 * @return last element from deque
+	 */
 	public T getLastElement() {
 		NodeDeque<T> temp = firstNode;
-		while(firstNode != null) {
-			temp = firstNode.next;
+		while (temp.getNext() != null) {
+			temp = temp.getNext();
 		}
 		return temp.getObj();
 	}
 
+	/**
+	 * 
+	 * @param obj
+	 */
 	private void createNodeDeque(T obj) {
 		firstNode = new NodeDeque<T>(obj);
 		inserts++;
