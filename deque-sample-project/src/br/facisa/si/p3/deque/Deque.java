@@ -110,6 +110,6 @@ public class Deque<T> {
 	 * @return if the array is empty
 	 */
 	public boolean isEmpty(){	
-		return internArray.length == 0;
+		return internArray.length > 0;
 	}
 }
