@@ -11,7 +11,7 @@ public class LinkedList<T> {
 
 	public void insertFront(T obj) {
 		if (headNode == null) {
-			createObject(obj);
+			createNodeList(obj);
 		} else {
 			NodeList<T> tempNode = new NodeList<T>(obj);
 			tempNode.setNext(headNode);
@@ -21,16 +21,17 @@ public class LinkedList<T> {
 
 	public void insertBack(T obj) {
 		if (headNode == null) {
-			createObject(obj);
+			createNodeList(obj);
 		} else {
 			NodeList<T> tempNode = headNode;
-
+			NodeList<T> newNode = new NodeList<T>(obj);
+			
 			while (tempNode.getNext() != null) {
 				tempNode = tempNode.getNext();
 			}
 
-			tempNode.setNext(new NodeList<T>(obj));
-
+			tempNode.setNext(newNode);
+			
 			inserts++;
 		}
 	}
@@ -38,16 +39,17 @@ public class LinkedList<T> {
 	public T search(T obj) {
 		T element = null;
 		NodeList<T> current = null;
-		if(headNode != null) {
+		if (headNode != null) {
 			current = headNode;
-			while(current.getObj() != obj) {
+			while (current.getObj() != obj) {
 				current = current.getNext();
 			}
-			element  = current.getObj();			
+			element = current.getObj();
 		}
-		
+
 		return element;
 	}
+
 	public T removeFront() {
 		T tempObj = null;
 		if (headNode != null) {
@@ -63,35 +65,38 @@ public class LinkedList<T> {
 		T tempElement = null;
 		if (headNode != null) {
 			current = headNode;
-			for (int j = 0; j < inserts - 2; j++) {
+			while (current.getNext() != null) {
 				current = current.getNext();
 			}
-			tempElement = current.getNext().getObj();
-			current.setNext(null);
+			tempElement = current.getObj();
+			current.setObj(null);
 			inserts--;
 		}
 		return tempElement;
 	}
 
-	public T removeIn(int pos) {
-		T element = null;
-		if(pos > 0 && pos < inserts) {
-			if(headNode != null) {
-				NodeList<T> current = headNode;
-				for(int k = 0; k < pos - 1; k++) {
-					current = current.getNext();
-				}
-				NodeList<T> del = current.getNext();
-				element = del.getObj();
-				NodeList<T> after = del.getNext();
-				current.setNext(after);
-			}
+	public T first() {
+		T temp = null;
+		if (headNode != null) {
+			temp = headNode.getObj();
 		}
-		
-		return element;
+		return temp;
 	}
 
-	private void createObject(T obj) {
+	public T last() {
+		T temp = null;
+		NodeList<T> current = null;
+		if (headNode != null) {
+			current = headNode;
+			while (current.getNext() != null) {
+				current = current.getNext();
+			}
+			temp = current.getObj();
+		}
+		return temp;
+	}
+
+	private void createNodeList(T obj) {
 		headNode = new NodeList<T>(obj);
 		inserts++;
 	}
@@ -99,7 +104,7 @@ public class LinkedList<T> {
 	public boolean isEmpty() {
 		return inserts == 0;
 	}
-	
+
 	public int size() {
 		return inserts;
 	}
