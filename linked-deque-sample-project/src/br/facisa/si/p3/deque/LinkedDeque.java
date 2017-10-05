@@ -6,7 +6,7 @@ package br.facisa.si.p3.deque;
  *
  * @param <T>
  */
-public class Deque<T> {
+public class LinkedDeque<T> {
 
 	private NodeDeque<T> firstNode;
 	private int inserts;
@@ -14,7 +14,7 @@ public class Deque<T> {
 	/**
 	 * 
 	 */
-	public Deque() {
+	public LinkedDeque() {
 		this.firstNode = null;
 	}
 
